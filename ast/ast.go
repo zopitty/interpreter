@@ -33,7 +33,6 @@ func (p *Program) TokenLiteral() string {
 	}
 }
 
-
 // LET statement node
 type LetStatement struct {
 	Token token.Token // the token.LET toke
@@ -41,15 +40,23 @@ type LetStatement struct {
 	Value Expression
 }
 
-func (ls *LetStatement) statementNode() {}
+func (ls *LetStatement) statementNode()       {}
 func (ls *LetStatement) TokenLiteral() string { return ls.Token.Literal }
-
 
 // IDENT node
 type Identitifier struct {
-    Token token.Token
-    Value string
+	Token token.Token
+	Value string
 }
 
-func (i *Identitifier) expressionNode() {}
+func (i *Identitifier) expressionNode()      {}
 func (i *Identitifier) TokenLiteral() string { return i.Token.Literal }
+
+// Return node
+type ReturnStatement struct {
+	Token       token.Token // the 'return' token
+	ReturnValue Expression
+}
+
+func (rs *ReturnStatement) statementNode() {}
+func (rs *ReturnStatement) TokenLiteral() string { return rs.Token.Literal }
