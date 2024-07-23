@@ -51,7 +51,7 @@ func (p *Program) String() string {
 // LET statement node
 type LetStatement struct {
 	Token token.Token // the token.LET token
-	Name  *Identitifier
+	Name  *Identifier
 	Value Expression
 }
 
@@ -74,14 +74,14 @@ func (ls *LetStatement) String() string {
 }
 
 // IDENT node
-type Identitifier struct {
+type Identifier struct {
 	Token token.Token
 	Value string
 }
 
-func (i *Identitifier) expressionNode()      {}
-func (i *Identitifier) TokenLiteral() string { return i.Token.Literal }
-func (i *Identitifier) String() string       { return i.Value }
+func (i *Identifier) expressionNode()      {}
+func (i *Identifier) TokenLiteral() string { return i.Token.Literal }
+func (i *Identifier) String() string       { return i.Value }
 
 // Return statement node
 type ReturnStatement struct {
