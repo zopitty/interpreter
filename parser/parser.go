@@ -25,8 +25,8 @@ func New(l *lexer.Lexer) *Parser {
 	}
 
 	// Read two tokens, so both cur and peek are set
-	p.curToken = p.peekToken
-	p.peekToken = p.l.NextToken()
+    p.nextToken()
+    p.nextToken()
 
 	return p
 }
